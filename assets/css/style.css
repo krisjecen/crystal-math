@@ -1,0 +1,15 @@
+body {
+    background-image: url(../images/triangles.png);
+    background-size: 100% cover;
+}
+
+#container, footer {
+    background: rgba(240, 248, 255, 0.5);
+    margin: 5%;
+    padding: 1%;
+}
+
+/* footer {
+    margin: 0% 5% 5%;
+    padding: 1%;
+} */
