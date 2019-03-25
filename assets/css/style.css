@@ -5,11 +5,16 @@ body {
 
 #container, footer {
     background: rgba(240, 248, 255, 0.5);
-    margin: 5%;
-    padding: 1%;
+    margin: 2% 5% 1%; /*this is spacing the container too far above the footer, need to adjust*/
+    padding: 2% 10%;
 }
 
-/* footer {
-    margin: 0% 5% 5%;
-    padding: 1%;
-} */
+footer {
+    margin: 1% 5% 1%;
+    padding: 2% 5%;
+}
+
+#c1 {
+    border-color: #ffb042;
+    /* border-radius: 1rem; */
+}

@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Crystal Collector</title>
     <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
@@ -13,50 +14,64 @@
     <div id="container">
 
 
-        <div id="gametitle">
+        <div class="header" id="gametitle">
             <h1>Crystal Collector! under construction</h1>
         </div>
-        <div id="instructions">
+
+        <div class="row" id="instructions">
             <!-- gameplay instructions -->
-            instructions
+            <div class="col">
+                <p>instructions</p>
+            </div>
         </div>
-        <div id="targetAndwins">
+
+        <div class="row" id="targetAndwins">
             <!-- this is the div for the whole row that will display the target -->
             <!-- score and the player's wins/losses -->
-            <div id="targetScore">
+            <div class="col-5" id="targetScorearea">
                 <!-- randomly generated target score between 19 & 120 -->
-                target score
+                <div id="targetScore"></div>
+                <div id="targetScoretext">
+                    <p>target score</p>
+                </div>
             </div>
-            <div id="winLoss">
+            <div class="col-3" id="winLoss">
                 <!-- display the player's win and loss totals -->
-            </div>
-            <div id="crystalDisplay">
-                <!-- four crystals will be displayed here side by side -->
-                <!-- find some sweet crystal images in the CC -->
-                <div id="c1">
-                    <!-- first crystal -->
-                </div>
-                <div id="c2">
-                    <!-- second crystal -->
-                </div>
-                <div id="c3">
-                    <!-- third crystal -->
-                </div>
-                <div id="c4">
-                    <!-- fourth crystal -->
-                </div>
-            </div>
-            <div id="scoreArea">
-                <!-- displays the static text and the dynamic score -->
-                <div id="scoreText">
-                    Your total score is:
-                </div>
-                <div id="score">
-                    <!-- score will start as 0 each time the page is loaded or -->
-                    <!-- at the beginning of a new game -->
-                </div>
+                <p>Wins:</p>
+                <p>Losses:</p>
             </div>
         </div>
+
+        <div class="row no-gutters" id="crystalDisplay">
+            <!-- four crystals will be displayed here side by side -->
+            <!-- find some sweet crystal images in the CC -->
+            <div class="col-2" id="c1">
+                <!-- first crystal -->
+            </div>
+            <div class="col-2" id="c2">
+                <!-- second crystal -->
+            </div>
+            <div class="col-2" id="c3">
+                <!-- third crystal -->
+            </div>
+            <div class="col-2" id="c4">
+                <!-- fourth crystal -->
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- displays the static text and the dynamic score -->
+            <div class="col-5" id="scoreText">
+                <p>Your total score is:</p>
+            </div>
+            <div class="col-3" id="score">
+                <!-- score will start as 0 each time the page is loaded or -->
+                <!-- at the beginning of a new game -->
+                <!-- <p>75(placeholder)</p> -->
+            </div>
+        </div>
+        </div>
+        
 
     </div>
 
