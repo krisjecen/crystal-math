@@ -9,12 +9,32 @@ body {
     padding: 2% 10%;
 }
 
-footer {
-    margin: 1% 5% 1%;
-    padding: 2% 5%;
+#targetScorearea {
+    background: rgba(255, 172, 71, 0.5);
+    margin: 5px 15px;
+    padding: 2px 2px;
+}
+
+#targetScoretext {
+    color: aliceblue;
+    font-size: 150%;
+    font-weight: bold;
+    vertical-align: bottom;
+    margin-bottom: 0px;
+}
+
+#targetScore {
+    text-align: right;
+    font-size: 400%;
+    padding-right: 20px;
 }
 
 #c1 {
     border-color: #ffb042;
     /* border-radius: 1rem; */
+}
+
+footer {
+    margin: 1% 5% 1%;
+    padding: 2% 5%;
 }

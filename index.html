@@ -31,14 +31,14 @@
             <div class="col-5" id="targetScorearea">
                 <!-- randomly generated target score between 19 & 120 -->
                 <div id="targetScore"></div>
-                <div id="targetScoretext">
-                    <p>target score</p>
+                <div id="targetScoretextDiv">
+                    <p id="targetScoretext">target score</p>
                 </div>
             </div>
             <div class="col-3" id="winLoss">
                 <!-- display the player's win and loss totals -->
-                <p>Wins:</p>
-                <p>Losses:</p>
+                <p id="winsText"></p>
+                <p id="lossesText"></p>
             </div>
         </div>
 
@@ -62,7 +62,7 @@
         <div class="row">
             <!-- displays the static text and the dynamic score -->
             <div class="col-5" id="scoreText">
-                <p>Your total score is:</p>
+                <p>Your current score is:</p>
             </div>
             <div class="col-3" id="score">
                 <!-- score will start as 0 each time the page is loaded or -->
