@@ -61,12 +61,6 @@ $(document).ready(function() {
         c3 = Math.floor(Math.random() * 12) + 1;
         c4 = Math.floor(Math.random() * 12) + 1;
 
-        // delete these later
-        console.log(c1);
-        console.log(c2);
-        console.log(c3);
-        console.log(c4);
-
         // reset the increase value
         increase = 0;
 
