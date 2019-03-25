@@ -13,15 +13,23 @@ $(document).ready(function() {
     var increase = 0;
     var userWins = 0;
     var userLosses = 0;
+    var userPlays = 0;
+    //
+    // end of variable initialization
 
-    // display the userScore on the screen
+    // display initial text and images
+    //
+    // display the userScore & targetScore
     $("#userScore").text(userScore);
     $("#targetScore").text(targetScore);
-    //$("#winLosstext").text(`Wins: ${userWins} Losses: ${userLosses}`);
+    //
+    // display wins & losses
     $("#winLosstext").html(`<p>Wins: ${userWins}</p><p>Losses: ${userLosses}</p>`);
-
-
-    // target the crystal area and set the images in place side by side
+    //
+    // display initial encouraging text in the winLoss message area
+    $('#winLossmessageText').text(`Can you match the target?`);
+    //
+    // display the four crystals side by side
     $("#c1").html("<img src='assets/images/crystal1.png' width='150px' class='border img-fluid'>");
     $("#c2").html("<img src='assets/images/crystal2.png' width='150px' class='border img-fluid'>");
     $("#c3").html("<img src='assets/images/crystal3.png' width='150px' class='border img-fluid'>");
@@ -29,35 +37,50 @@ $(document).ready(function() {
 
     // declare functions
     //
-    // increase the userScore when a crystal is clicked
+    // the newGame function initializes the game and is called at the end of every game
+    // to reset the crystal values, userScore, targetScore, and the increase variable.
+    //
     function newGame() {
-        // reset the userScore
+        // reset the userScore & update display
         userScore = 0;
         $("#userScore").text(userScore);
-        // generate a new targetScore
+
+        // generate a new targetScore & update display 
         targetScore = Math.floor(Math.random() * 102) + 19;
         $("#targetScore").text(targetScore);
-        // generate new crystal values
+
+        // reset the crystal values to null, not sure if this is necessary
         c1 = null;
         c2 = null;
         c3 = null;
         c4 = null;
+
+        // generate new crystal values
         c1 = Math.floor(Math.random() * 12) + 1;
         c2 = Math.floor(Math.random() * 12) + 1;
         c3 = Math.floor(Math.random() * 12) + 1;
         c4 = Math.floor(Math.random() * 12) + 1;
+
+        // delete these later
         console.log(c1);
         console.log(c2);
         console.log(c3);
         console.log(c4);
 
+        // reset the increase value
         increase = 0;
+
+        // reset the userPlays counter
+        userPlays = 0;
     }
-    
-    // need to update this value because c1 console logs accurately but crystalValue
-    // is still lingering from the first generated value
+    //
+    //
+    // the addCrystalValue function is the main gameplay function. it is called whenever
+    // one of the crystals is clicked/tapped. it adds points to the userScore and
+    // checks to see if game-ending conditions are met.
+    //
     function addCrystalvalue(crystalValue) {
-        // takes the parameter data from the on-click event
+        // uses the parameter data from the on-click event
         // takes the string value and assigns the appropriate numeric value
         if (crystalValue.data.crystal === "c1val") {
             increase = c1;
@@ -71,31 +94,50 @@ $(document).ready(function() {
         else if (crystalValue.data.crystal === "c4val") {
             increase = c4;
         }
-        // increase the userScore by the appropriate crystal value
+
+        // increase the userScore by the clicked-crystal value
         userScore += increase;
         // update the score with the new value
         $("#userScore").text(userScore);
+        // increment the userPlays counter
+        userPlays++;
 
+        if (userPlays === 1 && (userWins != 0 || userLosses != 0)) {
+            // display encouraging text in the winLoss message area after the first play
+            // of the 2nd (and following) games
+            $('#winLossmessageText').text(`Can you match the new target?`);
+        }
+
+        // has the player lost? (their score exceeds the target)
         if (userScore > targetScore) {
+            // increment losses by 1
             userLosses++;
+            // update winLoss text with new totals
             $("#winLosstext").html(`<p>Wins: ${userWins}</p><p>Losses: ${userLosses}</p>`);
+            // display a "you lost" message
+            $('#winLossmessageText').text(`Oops, you overshot ${targetScore} by ${userScore-targetScore}. Better luck next time.`);
             //start the next game
             newGame()
         }
 
-        // check to see if the player has won
+        // has the player won? (their score matches the target)
         else if (userScore === targetScore) {
+            // increment wins by 1
             userWins++;
+            // update winLoss text with new totals
             $("#winLosstext").html(`<p>Wins: ${userWins}</p><p>Losses: ${userLosses}</p>`);
+            // display a "you won" message
+            $('#winLossmessageText').text(`You matched ${targetScore} exactly! Well done!`);
             //start the next game
             newGame()
         }
+
+        // game allows more points to be added to the userScore as long as neither userScore-if statement is true
         
     }
     
+    // initialize the game
     newGame()
-
-
 
     // on-click events for crystal buttons
     // 
@@ -112,11 +154,6 @@ $(document).ready(function() {
     $("#c2").on("click", {crystal: "c2val"}, addCrystalvalue);
     $("#c3").on("click", {crystal: "c3val"}, addCrystalvalue);
     $("#c4").on("click", {crystal: "c4val"}, addCrystalvalue);
-
-
-
-
-
 
 
 });

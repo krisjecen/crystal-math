@@ -5,7 +5,7 @@ body {
 
 #container, footer {
     background: rgba(240, 248, 255, 0.5);
-    margin: 2% 5% 1%; /*this is spacing the container too far above the footer, need to adjust*/
+    margin: 2% 5% 1%;
     padding: 2% 10%;
 }
 
@@ -56,22 +56,24 @@ body {
 
 #winLosstext {
     vertical-align: bottom;
+    color: rgba(40, 40, 40, 0.8);
     padding-top: 20px;
 }
 
 #winLossmessage {
     background: rgba(77, 189, 255, 0.5);
+    color: rgba(240, 248, 255, 0.8);
     margin: 5px 15px 5px -10px;
-    padding: 2px 5px;
-    font-size: 200%;
-}
-
-#c1 {
-    border-color: #ffb042;
-    /* border-radius: 1rem; */
+    padding: 20px 5px 0px 10px;
+    font-size: 150%;
 }
 
 footer {
     margin: 1% 5% 1%;
     padding: 2% 10%;
+    text-decoration: none;
+}
+
+a, a:hover {
+    color: indigo;
 }
