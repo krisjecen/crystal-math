@@ -25,26 +25,30 @@
             </div>
         </div>
 
-        <div class="row" id="targetAndwins">
+        <div class="row no-gutters" id="scoreAreas">
             <!-- this is the div for the whole row that will display the target -->
-            <!-- score and the player's wins/losses -->
-            <div class="col-5" id="targetScorearea">
-                <!-- randomly generated target score between 19 & 120 -->
-                <div id="targetScore"></div>
-                <div id="targetScoretextDiv">
-                    <p id="targetScoretext">target score</p>
-                </div>
+            <!-- score and the player's score -->
+            
+            <div class="col-4" id="userScorearea">
+                    <!-- randomly generated target score between 19 & 120 -->
+                    <div id="userScore"></div>
+                    <div id="userScoretextDiv">
+                        <p id="userScoretext">current score</p>
+                    </div>
             </div>
-            <div class="col-3" id="winLoss">
-                <!-- display the player's win and loss totals -->
-                <p id="winsText"></p>
-                <p id="lossesText"></p>
+            
+            <div class="col-4" id="targetScorearea">
+                    <!-- randomly generated target score between 19 & 120 -->
+                    <div id="targetScore"></div>
+                    <div id="targetScoretextDiv">
+                        <p id="targetScoretext">target score</p>
+                    </div>
             </div>
+            
         </div>
 
         <div class="row no-gutters" id="crystalDisplay">
             <!-- four crystals will be displayed here side by side -->
-            <!-- find some sweet crystal images in the CC -->
             <div class="col-2" id="c1">
                 <!-- first crystal -->
             </div>
@@ -59,21 +63,27 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row no-gutters">
             <!-- displays the static text and the dynamic score -->
-            <div class="col-5" id="scoreText">
+            <div class="col-4" id="winLoss">
+                    <!-- display the player's win and loss totals -->
+                    <p id="winLosstext"></p>
+            </div>
+            <div class="col-4" id="winLossmessage">
+                    <!-- display the player's win and loss totals -->
+                    <p id="winLossmessageText"></p>
+            </div>
+            <!-- <div class="col-5" id="scoreText">
                 <p>Your current score is:</p>
             </div>
             <div class="col-3" id="score">
-                <!-- score will start as 0 each time the page is loaded or -->
+                score will start as 0 each time the page is loaded or -->
                 <!-- at the beginning of a new game -->
-                <!-- <p>75(placeholder)</p> -->
-            </div>
+                <!-- <p>75(placeholder)</p>
+            </div> -->
         </div>
-        </div>
-        
-
     </div>
+        
 
     <script type="text/javascript" src="assets/javascript/game.js"></script>
     <footer>

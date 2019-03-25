@@ -10,14 +10,16 @@ $(document).ready(function() {
     var c2 = null;
     var c3 = null;
     var c4 = null;
+    var increase = 0;
     var userWins = 0;
     var userLosses = 0;
 
     // display the userScore on the screen
-    $("#score").text(userScore);
+    $("#userScore").text(userScore);
     $("#targetScore").text(targetScore);
-    $("#winsText").text(`Wins: ${userWins}`);
-    $("#lossesText").text(`Losses: ${userLosses}`);
+    //$("#winLosstext").text(`Wins: ${userWins} Losses: ${userLosses}`);
+    $("#winLosstext").html(`<p>Wins: ${userWins}</p><p>Losses: ${userLosses}</p>`);
+
 
     // target the crystal area and set the images in place side by side
     $("#c1").html("<img src='assets/images/crystal1.png' width='150px' class='border img-fluid'>");
@@ -31,11 +33,15 @@ $(document).ready(function() {
     function newGame() {
         // reset the userScore
         userScore = 0;
-        $("#score").text(userScore);
+        $("#userScore").text(userScore);
         // generate a new targetScore
         targetScore = Math.floor(Math.random() * 102) + 19;
         $("#targetScore").text(targetScore);
         // generate new crystal values
+        c1 = null;
+        c2 = null;
+        c3 = null;
+        c4 = null;
         c1 = Math.floor(Math.random() * 12) + 1;
         c2 = Math.floor(Math.random() * 12) + 1;
         c3 = Math.floor(Math.random() * 12) + 1;
@@ -45,20 +51,34 @@ $(document).ready(function() {
         console.log(c3);
         console.log(c4);
 
+        increase = 0;
     }
     
     // need to update this value because c1 console logs accurately but crystalValue
     // is still lingering from the first generated value
     function addCrystalvalue(crystalValue) {
         // takes the parameter data from the on-click event
-        console.log(c1);
-        userScore += crystalValue.data.crystal;
+        // takes the string value and assigns the appropriate numeric value
+        if (crystalValue.data.crystal === "c1val") {
+            increase = c1;
+        }
+        else if (crystalValue.data.crystal === "c2val") {
+            increase = c2;
+        }
+        else if (crystalValue.data.crystal === "c3val") {
+            increase = c3;
+        }
+        else if (crystalValue.data.crystal === "c4val") {
+            increase = c4;
+        }
+        // increase the userScore by the appropriate crystal value
+        userScore += increase;
         // update the score with the new value
-        $("#score").text(userScore);
+        $("#userScore").text(userScore);
 
         if (userScore > targetScore) {
             userLosses++;
-            $("#lossesText").text(`Losses: ${userLosses}`);
+            $("#winLosstext").html(`<p>Wins: ${userWins}</p><p>Losses: ${userLosses}</p>`);
             //start the next game
             newGame()
         }
@@ -66,45 +86,34 @@ $(document).ready(function() {
         // check to see if the player has won
         else if (userScore === targetScore) {
             userWins++;
-            $("#winsText").text(`Wins: ${userWins}`);
+            $("#winLosstext").html(`<p>Wins: ${userWins}</p><p>Losses: ${userLosses}</p>`);
             //start the next game
             newGame()
         }
         
     }
     
-    // generate a random target score for the game
-    //targetScore = Math.floor(Math.random() * 102) + 19;
-    //$("#targetScore").text(targetScore);
-
-
-    // generate random values for the four crystals for the game
-    // (to be regenerated when the game restarts)
-    // c1 = Math.floor(Math.random() * 12) + 1;
-    // c2 = Math.floor(Math.random() * 12) + 1;
-    // c3 = Math.floor(Math.random() * 12) + 1;
-    // c4 = Math.floor(Math.random() * 12) + 1;
-    
-
     newGame()
 
+
+
     // on-click events for crystal buttons
-    // when the crystal is clicked, pass the current value of the crystal into the addCrystalvalue fn
-    $("#c1").on("click", {crystal: c1}, addCrystalvalue);
-    $("#c2").on("click", {crystal: c2}, addCrystalvalue);
-    $("#c3").on("click", {crystal: c3}, addCrystalvalue);
-    $("#c4").on("click", {crystal: c4}, addCrystalvalue);
+    // 
+    // when crystal buttons are clicked, pass a particular string into the addCrystalvalue
+    // function which will be used to appropriately increase the userScore
+    //
+    // I previously had {crystal: c1}, etc. (not the strings "c1val", etc.) in the eventdata section,
+    // thinking it would pass the current value of the crystal into the addCrystalvalue, but this
+    // did notupdate with each new game. the value of the crystals was sticky. so i changed it
+    // to these string data values that could be assigned the updated c1, c2, etc. values
+    // in the addCrystalValue function.
+    //
+    $("#c1").on("click", {crystal: "c1val"}, addCrystalvalue);
+    $("#c2").on("click", {crystal: "c2val"}, addCrystalvalue);
+    $("#c3").on("click", {crystal: "c3val"}, addCrystalvalue);
+    $("#c4").on("click", {crystal: "c4val"}, addCrystalvalue);
 
-    
 
-
-    
-    // if userScore < targetScore, let buttons add value to userScore
-
-    // if userScore > targetScore, player loses
-    // increment userLosses
-
-    
 
 
 
