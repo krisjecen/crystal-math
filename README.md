@@ -4,4 +4,4 @@ Crystal Math is a one-person math puzzle game where you click or tap the randoml
 
 Crystal Math functions a bit like blackjack: there's a good bit of randomness :game_die:, you can't always win:dizzy:, and if your score exceeds the target, you lose. :anger:
 
-:gem:[Crystal Math is available desktop and mobile devices](https://krisjecen.github.io/unit-4-game/):gem:
+:gem:[Play Crystal Math](https://krisjecen.github.io/unit-4-game/) on desktop and mobile devices:gem:
