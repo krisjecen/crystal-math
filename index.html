@@ -21,20 +21,19 @@
         <div class="row" id="instructions">
             <!-- gameplay instructions -->
             <div class="col">
-                <p>Behold, you have stumbled upon a target number and four mysterious
+                <p class="instructionText">Behold, you have stumbled upon a target number and four mysterious
                     crystals. What value could each of these crystals hold? Click or tap them to find out. </p>
-                <p>Can you match your score to the target number? Or will you overshoot the target and lose?</p>
-                <p>Beware, these magical crystals can change value after each game, and some games can't be
-                     won. Good luck!</p>
+                <p class="instructionText">Can you match your score to the target number? Or will you overshoot the target and lose?</p>
+                <p class="instructionText">Beware, these magical crystals can change value after each game, and some games can't be
+                     won. Good luck! <a class="instructionToggle" href=#>Hide instructions</a></p>
+                <p class="instructionText" style="display: none"><a class="instructionToggle" href=#>Show instructions</a></p>
             </div>
         </div>
 
         <div class="row no-gutters" id="scoreAreas">
             <!-- this is the div for the whole row that will display the target -->
             <!-- score and the player's score -->
-            
             <div class="col-4" id="userScorearea">
-                    <!-- randomly generated target score between 19 & 120 -->
                     <div id="userScore"></div>
                     <div id="userScoretextDiv">
                         <p id="userScoretext">current score</p>
@@ -42,13 +41,11 @@
             </div>
             
             <div class="col-4" id="targetScorearea">
-                    <!-- randomly generated target score between 19 & 120 -->
                     <div id="targetScore"></div>
                     <div id="targetScoretextDiv">
                         <p id="targetScoretext">target score</p>
                     </div>
             </div>
-            
         </div>
 
         <div class="row no-gutters" id="crystalDisplay">
@@ -68,13 +65,10 @@
         </div>
 
         <div class="row no-gutters">
-            <!-- displays the static text and the dynamic score -->
             <div class="col-4" id="winLoss">
-                    <!-- display the player's win and loss totals -->
                     <p id="winLosstext"></p>
             </div>
             <div class="col-4" id="winLossmessage">
-                    <!-- display the player's win and loss totals -->
                     <p id="winLossmessageText"></p>
             </div>
         </div>
@@ -84,11 +78,11 @@
     <script type="text/javascript" src="assets/javascript/game.js"></script>
     <footer>
         <p>
-            Crystal Math was composed in 2019 by Kris Jecen, using javascript, jQuery, html, & css/Bootstrap.
+            Crystal Math was cooked up in 2019 by Kris Jecen, using javascript, jQuery, html, & css/Bootstrap.
         </p>
         <p>
             The images in Crystal Math were sourced from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=4022878">Pixabay</a>:
-            Crystal images by <a href="https://pixabay.com/users/AnnaliseArt-7089643/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=4022878">Annalise Batista</a>, and
+            crystal images by <a href="https://pixabay.com/users/AnnaliseArt-7089643/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=4022878">Annalise Batista</a>, and
             background image by <a href="https://pixabay.com/users/DavidRockDesign-2595351/">DavidRockDesign</a>.
         </p>
     </footer>

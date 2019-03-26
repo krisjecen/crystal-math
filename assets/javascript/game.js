@@ -1,8 +1,8 @@
-// js for Crystal Collector game
-// will use jQuery
-
-// wait until the html is loaded
+// js for Crystal Math
+//
+// run the js after the index page has loaded
 $(document).ready(function() {
+    
     // initialize variables
     var targetScore = null;
     var userScore = 0;
@@ -14,8 +14,6 @@ $(document).ready(function() {
     var userWins = 0;
     var userLosses = 0;
     var userPlays = 0;
-    //
-    // end of variable initialization
 
     // display initial text and images
     //
@@ -67,6 +65,7 @@ $(document).ready(function() {
         // reset the userPlays counter
         userPlays = 0;
     }
+    // end of newGame function
     //
     //
     // the addCrystalValue function is the main gameplay function. it is called whenever
@@ -127,9 +126,10 @@ $(document).ready(function() {
         }
 
         // game allows more points to be added to the userScore as long as neither userScore-if statement is true
-        
     }
+    // end of addCrystalvalue function
     
+    // Gameplay begins!
     // initialize the game
     newGame()
 
@@ -138,9 +138,9 @@ $(document).ready(function() {
     // when crystal buttons are clicked, pass a particular string into the addCrystalvalue
     // function which will be used to appropriately increase the userScore
     //
-    // I previously had {crystal: c1}, etc. (not the strings "c1val", etc.) in the eventdata section,
+    // note: I previously had {crystal: c1}, etc., (not the strings "c1val", etc.) in the eventdata section,
     // thinking it would pass the current value of the crystal into the addCrystalvalue, but this
-    // did notupdate with each new game. the value of the crystals was sticky. so i changed it
+    // did not update with each new game -- the value of the crystals was sticky. so i changed c1, etc.,
     // to these string data values that could be assigned the updated c1, c2, etc. values
     // in the addCrystalValue function.
     //
@@ -149,6 +149,11 @@ $(document).ready(function() {
     $("#c3").on("click", {crystal: "c3val"}, addCrystalvalue);
     $("#c4").on("click", {crystal: "c4val"}, addCrystalvalue);
 
+    // on click event for instruction text toggle (to hide/show instructions)
+    //
+    $(".instructionToggle").click(function() {
+        $(".instructionText").toggle("slow");
+    });
 
 });
 
