@@ -5,8 +5,8 @@ body {
 
 #container, footer {
     background: rgba(240, 248, 255, 0.5);
-    margin: 2% 5% 1%;
-    padding: 2% 10%;
+    margin: 5% 5% 1%;
+    padding: 2% 2%;
 }
 
 #userScorearea {
@@ -69,8 +69,8 @@ body {
 }
 
 footer {
-    margin: 1% 5% 1%;
-    padding: 2% 10%;
+    margin: 1% 5% 5%;
+    padding: 2% 2%;
     text-decoration: none;
 }
 
