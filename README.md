@@ -1,4 +1,4 @@
-# unit-4-game
+# Crystal Math
 :gem::gem::gem:
 Crystal Math is a one-person math puzzle game where you click or tap the randomly-valued crystals to try to match your score to the target number.
 
